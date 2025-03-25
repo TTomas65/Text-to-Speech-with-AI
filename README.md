@@ -8,6 +8,8 @@
 
 A modern, dark-themed, responsive web application that converts text to natural-sounding speech using OpenAI's Text-to-Speech API.
 
+![Running image](Images/Screen01.jpg)
+
 ## Features
 
 - **Modern Dark UI**: Sleek, responsive design that works on desktop and mobile devices

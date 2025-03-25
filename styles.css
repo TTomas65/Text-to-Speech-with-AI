@@ -1,15 +1,15 @@
 :root {
     --primary-color: #7c4dff;
     --primary-darker: #6039cc;
-    --secondary-color: #4caf50;
-    --secondary-darker: #388e3c;
+    --secondary-color: #ff9c00;
+    --secondary-darker: #e68a00;
     --bg-dark: #121212;
     --bg-card: #1e1e1e;
     --text-primary: #ffffff;
     --text-secondary: #b3b3b3;
     --border-color: #333333;
     --error-color: #ff5252;
-    --success-color: #4caf50;
+    --success-color: #ff9c00;
     --info-color: #2196f3;
     --warning-color: #ff9800;
 }
@@ -51,6 +51,14 @@ header h1 {
     margin-bottom: 0.5rem;
     color: var(--primary-color);
     letter-spacing: 1px;
+}
+
+.version {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    font-weight: normal;
+    vertical-align: middle;
+    margin-left: 0.5rem;
 }
 
 header p {
