@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-to-Speech Converter</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Text-to-Speech</h1>
+            <p>Convert your text files to natural-sounding speech</p>
+        </header>
+
+        <main>
+            <section class="api-key-section">
+                <h2><i class="fas fa-key"></i> OpenAI API Key</h2>
+                <div class="api-key-container">
+                    <input type="password" id="api-key" class="api-key-input" placeholder="Enter your OpenAI API key">
+                    <button id="save-api-key" class="secondary-btn">
+                        <i class="fas fa-save"></i> Save API Key
+                    </button>
+                    <div class="api-key-status">
+                        <span id="api-key-status-icon" class="status-icon"><i class="fas fa-circle-xmark"></i></span>
+                        <span id="api-key-status-text">No API key saved</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="file-section">
+                <h2><i class="fas fa-file-alt"></i> Select Text File</h2>
+                <div class="file-input-container">
+                    <input type="file" id="textFile" accept=".txt" class="file-input">
+                    <label for="textFile" class="file-label">
+                        <i class="fas fa-upload"></i> Choose a .txt file
+                    </label>
+                    <span id="file-name" class="file-name">No file selected</span>
+                </div>
+                <div class="text-editor-container">
+                    <h3>Text Editor:</h3>
+                    <textarea id="text-editor" class="text-editor" placeholder="Enter or paste your text here..."></textarea>
+                    <div class="text-editor-controls">
+                        <button id="clear-text-btn" class="secondary-btn">
+                            <i class="fas fa-trash-alt"></i> Clear Text
+                        </button>
+                        <div id="text-stats" class="text-stats">0 words, 0 characters</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="voice-options">
+                <h2><i class="fas fa-sliders-h"></i> Voice Options</h2>
+                
+                <div class="option-group">
+                    <label for="voice-model">Model:</label>
+                    <select id="voice-model" class="select-dropdown">
+                        <option value="gpt-4o-mini-tts">GPT-4o Mini TTS</option>
+                    </select>
+                </div>
+                
+                <div class="option-group">
+                    <label for="voice-selection">Voice:</label>
+                    <select id="voice-selection" class="select-dropdown">
+                        <option value="alloy">Alloy</option>
+                        <option value="echo">Echo</option>
+                        <option value="fable">Fable</option>
+                        <option value="onyx">Onyx</option>
+                        <option value="nova">Nova</option>
+                        <option value="shimmer">Shimmer</option>
+                        <option value="coral" selected>Coral</option>
+                    </select>
+                </div>
+                
+                <div class="option-group">
+                    <label for="voice-instructions">Voice Instructions:</label>
+                    <textarea id="voice-instructions" class="instructions-area" rows="8">Voice Affect: Calm, composed, and reassuring. Competent and in control, instilling trust.
+
+Tone: Sincere, empathetic, with genuine concern for the customer and understanding of the situation.
+
+Pacing: Slower during the apology to allow for clarity and processing. Faster when offering solutions to signal action and resolution.
+
+Emotions: Calm reassurance, empathy, and gratitude.
+
+Pronunciation: Clear, precise: Ensures clarity, especially with key details. Focus on key words like "refund" and "patience." 
+
+Pauses: Before and after the apology to give space for processing the apology.</textarea>
+                </div>
+            </section>
+
+            <section class="action-section">
+                <button id="generate-btn" class="primary-btn" disabled>
+                    <i class="fas fa-music"></i> Generate Audio File
+                </button>
+                <div id="loading" class="loading-spinner hidden"></div>
+            </section>
+        </main>
+    </div>
+
+    <div id="toast-container" class="toast-container"></div>
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Message</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div id="modal-body" class="modal-body">
+                <!-- Modal content will be inserted here -->
+            </div>
+            <div class="modal-footer">
+                <button class="modal-button" id="modal-ok">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p> 2025 Text-to-Speech Converter | Using OpenAI API</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
